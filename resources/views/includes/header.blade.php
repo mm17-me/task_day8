@@ -44,19 +44,19 @@
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{{ route('homePage') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
+                  <a class="nav-link" href="{{ route('about') }}"> About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.html"> Services </a>
+                  <a class="nav-link" href="{{ route('service') }}"> Services </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="guard.html"> Guards </a>
+                  <a class="nav-link" href="{{ route('guard') }}"> Guards </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact us</a>
+                  <a class="nav-link" href="{{ route('contactUs') }}">Contact us</a>
                 </li>
               </ul>
             </div>

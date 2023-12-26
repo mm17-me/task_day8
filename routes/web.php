@@ -18,22 +18,22 @@ Route::get('/', function () {
 });
 
 
-Route::get('/index', function () {
+Route::get('index', function () {
     return view('index');
-});
+})->name('homePage');
 
-Route::get('/about', function () {
+Route::get('about', function () {
     return view('about');
-});
+})->name('about');
 
-Route::get('/service', function () {
+Route::get('service', function () {
     return view('service');
-});
+})->name('service');
 
-Route::get('/guard', function () {
+Route::get('guard', function () {
     return view('guard');
-});
+})->name('guard');
 
-Route::get('/contactUs', function () {
+Route::get('contactUs', function () {
     return view('contact');
-});
+})->name('contactUs');
