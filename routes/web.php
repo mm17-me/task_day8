@@ -37,3 +37,7 @@ Route::get('guard', function () {
 Route::get('contactUs', function () {
     return view('contact');
 })->name('contactUs');
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
