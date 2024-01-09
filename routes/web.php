@@ -28,7 +28,7 @@ Route::get('about', function () {
 
 Route::get('service', function () {
     return view('service');
-})->name('service');
+})->middleware('verified')->name('service');
 
 Route::get('guard', function () {
     return view('guard');

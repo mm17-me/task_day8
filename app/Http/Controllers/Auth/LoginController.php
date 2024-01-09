@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -45,6 +46,6 @@ class LoginController extends Controller
         elseif(filter_var($request->email, FILTER_VALIDATE_EMAIL)){
             return ['email'=>$request->email, 'password'=>$request->password];
         }
-        
+
         }
 }
