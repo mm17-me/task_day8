@@ -15,6 +15,13 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <script>
+                            // Add a delay of 2000 milliseconds (2 seconds) before redirecting
+                            setTimeout(function() {
+                                window.location.href = "{{ route('homePage') }}";
+                            }, 2000);
+                        </script>
                 </div>
             </div>
         </div>
