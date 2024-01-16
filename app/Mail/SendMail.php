@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Queue\SerializesModels;
 
 class SendMail extends Mailable
@@ -16,14 +17,14 @@ class SendMail extends Mailable
     /**
      * Create a new message instance.
      */
-public $user;
+public $data;
 
-public function __construct($user)
+public function __construct($data)
     {
-        $this->user = $user ;
+        $this->data = $data ;
     }
 
-  
+   
 
     /**
      * Get the message envelope.
@@ -31,7 +32,8 @@ public function __construct($user)
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Mail',
+            from: new Address($this->data['email'], $this->data['fullname']),
+            subject: $this->data['subject'] . '- Contact Us',
         );
     }
 
@@ -41,7 +43,10 @@ public function __construct($user)
     public function content(): Content
     {
         return new Content(
-            markdown: 'markdown=SendMail',
+            markdown: 'mails.emailToAdmin',
+            with:[
+                $this->data,
+            ]
         );
     }
 

@@ -7,18 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Mail\SendMail;
 use App\Mail\SendMessageToEndUser;
-use Mail;
+use Illuminate\Support\Facades\Mail;
+
 
 class MailController extends Controller
 {
-    public function mailform()
-    {
-        return view('contact');
-    }
 
     public function sendMail(Request $request)
     {
-        Mail::to('m@example.com')->send(new SendMail($request));
+        $data = $request->validate([
+            'fullname'=>'required|string|max:50',
+            'email'=> 'required|string',
+            'phone' => 'required|string',
+            'subject' => 'required',
+            'mess' => 'required',
+           ]);
+
+        Mail::to('m@example.com')->send(new SendMail($data));
         return back()->with('sentSuccessfully', 'Thank you for reaching out. Your message has been sent successfully.');
     }
 }
