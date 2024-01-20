@@ -34,8 +34,8 @@
           <nav class="navbar navbar-expand-lg custom_nav-container">
             <a class="navbar-brand" href="index.html">
               <span>
-                Guarder
-              </span>
+              {{ __('messages.siteTitle') }}
+            </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class=""></span>
@@ -44,20 +44,34 @@
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="{{ route('homePage') }}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{{ route('homePage') }}">{{ __('messages.home_navbar') }}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('about') }}"> About</a>
+                  <a class="nav-link" href="{{ route('about') }}"> {{ __('messages.about_navbar') }}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('service') }}"> Services </a>
+                  <a class="nav-link" href="{{ route('service') }}"> {{ __('messages.service_navbar') }} </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('guard') }}"> Guards </a>
+                  <a class="nav-link" href="{{ route('guard') }}"> {{ __('messages.guards_navbar') }} </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('contactUs') }}">Contact us</a>
+                  <a class="nav-link" href="{{ route('contactUs') }}">{{ __('messages.contact_navbar') }}</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL('en') }}">English</a></li>
+                
+                <li class="nav-item">
+                <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL('ar') }}">عربي</a>    
+                </li>
+             
+                <!-- <li class="nav-item"> 
+                <select name="language-picker-select" id="language-picker-select">
+                  <option value="{{ LaravelLocalization::getLocalizedURL('en') }}">English</option>
+                  <option value="{{ LaravelLocalization::getLocalizedURL('ar') }}">عربي</option>
+                </select>
+
+                </li> -->
               </ul>
             </div>
           </nav>

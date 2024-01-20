@@ -21,14 +21,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(
+    [
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
 
-Route::get('/homePage',[MainController::Class, 'homePage'])->name('homePage');
-Route::get('/services',[MainController::Class, 'servicePage'])->name('service');      
-Route::get('/aboutUs',[MainController::Class, 'aboutPage'])->name('about');
-Route::get('/guards',[MainController::Class, 'guardPage'])->name('guard');
-Route::get('/contactUs',[MainController::Class, 'contactUsPage'])->name('contactUs');
+        Route::get('/homePage',[MainController::Class, 'homePage'])->name('homePage');
+        Route::get('/services',[MainController::Class, 'servicePage'])->name('service');      
+        Route::get('/aboutUs',[MainController::Class, 'aboutPage'])->name('about');
+        Route::get('/guards',[MainController::Class, 'guardPage'])->name('guard');
+        Route::get('/contactUs',[MainController::Class, 'contactUsPage'])->name('contactUs');
+        
+        Route::post ('/contactForm',[MailController::class,'sendMail'])->name('sendMail');
+    });
 
-Route::post ('/contactForm',[MailController::class,'sendMail'])->name('sendMail');
 
 Auth::routes(['verify'=>true]);
 

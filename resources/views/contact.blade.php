@@ -16,7 +16,7 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Get In touch
+        {{ __('messages.formTitle') }}
         </h2>
 <br>
         @if (Session::has('sentSuccessfully'))
@@ -32,28 +32,28 @@
                 <div class="contact_form-container">
                     <div>
                         <div>
-                          <input type="text" name="fullname" placeholder="Full Name" />
+                          <input type="text" name="fullname" placeholder="{{ __('messages.fullname') }}" />
                         </div>
                     
                       <div>
-                        <input type="email" name="email" placeholder="Email " />
+                        <input type="email" name="email" placeholder="{{ __('messages.email') }} " />
                       </div>
                       
                       <div>
-                        <input type="text" name="phone" placeholder="Phone Number" />
+                        <input type="text" name="phone" placeholder="{{ __('messages.phone') }}" />
                       </div>
 
                       <div>
-                        <input type="text" name="subject" placeholder="Subject" />
+                        <input type="text" name="subject" placeholder="{{ __('messages.subject') }}" />
                       </div>
 
                       <div class="">
-                        <input type="text" name="mess" placeholder="Message" class="message_input" />
+                        <input type="text" name="mess" placeholder="{{ __('messages.message') }}" class="message_input" />
                       </div>
 
                       <div class="btn-box ">
                         <button type="submit">
-                          Send
+                        {{ __('messages.sendButton') }}
                         </button>
                       </div>
 
